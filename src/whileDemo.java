@@ -1,7 +1,6 @@
 public class whileDemo {
 	public static void main(String[] args) {
-		java.util.Scanner scanner = 
-			new java.util.Scanner(System.in);
+		java.util.Scanner scanner = new java.util.Scanner(System.in);
 		
 		System.out.print("輸入執行次數: ");
 		int input = scanner.nextInt();
@@ -12,5 +11,6 @@ public class whileDemo {
 			System.out.println("Hello World!");
 			count++; //每次執行後遞增
 		}
+		scanner.close();
 	}
 }
