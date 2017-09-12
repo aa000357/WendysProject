@@ -1,25 +1,38 @@
+import com.sun.corba.se.spi.extension.ZeroPortPolicy;
+
 public class java02_21 {
 	public static void main(String args[]) {
 		java.util.Scanner number = new java.util.Scanner(System.in);
 
-		int total = 0;// ¬ö¿ý¥Ø«e¦³¥Îªº¼Æ¦r
-//		int number_1, number_2, number_3;
+		int total = 0;
+		String number_in;
+		int number_count;
 
-		for (int i = 0; i < args.length; i++) {
+		for (int i = 0; i < 3;) {
 			try {
-				//
-				Integer.parseInt(number.next());
-				//
-				total += Integer.parseInt(args[i]);
+				
+				number_in = number.nextLine();
+				
+				if(number_in == "")
+					throw new IllegalArgumentException("æœªè¼¸å…¥æ•¸å€¼ï¼Œè«‹é‡æ–°è¼¸å…¥!");
+				else
+					number_count = Integer.parseInt(number_in);
+				
+				total += number_count;
+				i++;
 
-			} catch (NumberFormatException ne) {
-				System.err.println("¿é¤J¼Æ­È¤£¬O¾ã¼Æ¡A½Ð­«·s¿é¤J!");
-			} catch (Exception e) {
-				System.err.println("¬°¿é¤J¼Æ­È¡A½Ð­«·s¿é¤J!" + e);
-			} finally {
-				System.out.println("¤T¼Æ¬Û¥[=" + total);
+			} catch (IllegalArgumentException ne) {
+				System.err.println(ne.getMessage());
+				i--;
+			} catch (NumberFormatException e) {
+				System.err.println("è¼¸å…¥å€¼ä¸æ˜¯æ•´æ•¸ï¼Œè«‹é‡æ–°è¼¸å…¥!");				i--;
 			}
+			
+			finally {
+			}
+			
 		}
 
+		System.out.println("ä¸‰æ•¸ç›¸åŠ " + total);
 	}
 }
